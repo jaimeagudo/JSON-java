@@ -243,9 +243,11 @@ public class XML {
                     }
                     if (jsonobject.length() > 0) {
                         context.accumulate(tagName, jsonobject);
-                    } else {
-                        context.accumulate(tagName, "");
                     }
+                    // We do not want to consider empty tags
+                    // else {
+                    //     context.accumulate(tagName, "");
+                    // }
                     return false;
 
 // Content, between <...> and </...>
@@ -473,7 +475,7 @@ public class XML {
             if (object.getClass().isArray()) {
                 object = new JSONArray(object);
             }
-            
+
             if (object instanceof JSONArray) {
                 ja = (JSONArray)object;
                 length = ja.length();
@@ -487,6 +489,6 @@ public class XML {
         return (tagName == null) ? "\"" + string + "\"" :
             (string.length() == 0) ? "<" + tagName + "/>" :
             "<" + tagName + ">" + string + "</" + tagName + ">";
-            
+
     }
 }
