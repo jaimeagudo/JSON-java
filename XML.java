@@ -120,6 +120,9 @@ public class XML {
 
     /**
      * Scan the content following the named tag, attaching it to the context.
+     *
+     * It does NOT generate an empty string JSON value for an empty XML tag.
+     *
      * @param x       The XMLTokener containing the source string.
      * @param context The JSONObject that will include the new material.
      * @param name    The tag name.
